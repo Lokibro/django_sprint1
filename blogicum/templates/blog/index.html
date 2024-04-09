@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="container py-5">
+    {% for post in posts %}
+      {% if forloop.first %}
+        <h1>Лента записей</h1>
+    {% endif %}
+      <hr>
+      <article>
+        <ul>
+          <li>
+            Место: {{ post.location }}
+          </li>
+          <li>
+            Дата: {{ post.date }}
+          </li>
+          <li>
+            Категория: <a href="{%
+              url 'blog:category_posts' category_slug=post.category
+            %}">{{ post.category }}</a>
+          </li>
+        </ul>
+        <p>
+          {{ post.text|truncatewords:10 }}
+        </p>
+        <a href="{%
+          url 'blog:post_detail' id=post.id
+        %}">Читать полный текст</a>
+      </article>
+    {% endfor %}
+{% endblock %}
