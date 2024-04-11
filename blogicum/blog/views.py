@@ -44,7 +44,8 @@ posts = [
     },
 ]
 
-dict_posts = {post['id']:post for post in posts}
+dict_posts = {post['id']: post for post in posts}
+
 
 def index(request):
     context = {'posts': reversed(posts)}
