@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Пост №{{ post.id }}{% endblock %}
+{% block title %}{{ post.location }}.{{ post.date }}{% endblock %}
 {% block content %}
   {% include "includes/base_article.html"%}
 {% endblock %}

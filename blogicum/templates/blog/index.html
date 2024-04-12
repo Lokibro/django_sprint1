@@ -2,9 +2,7 @@
 {% block title %}Лента записей{% endblock %}
 {% block content %}
   {% for post in posts %}
-    {% if forloop.first %}
-    {% endif %}
     <hr>
-      {% include "includes/base_article.html"%}
-    {% endfor %}
+    {% include "includes/base_article.html"%}
+  {% endfor %}
 {% endblock %}
