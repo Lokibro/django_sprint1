@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from django.http import Http404
 
 posts = [
@@ -55,7 +56,7 @@ def index(request):
 def post_detail(request, post_id):
     post = dict_posts.get(post_id)
     if post is None:
-        raise Http404('Нет такого поста!')
+        raise Http404(f'Поста №{post_id} не существует!')
     context = {'post': post}
     return render(request, 'blog/detail.html', context)
 
